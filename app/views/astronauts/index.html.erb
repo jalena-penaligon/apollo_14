@@ -1,0 +1,17 @@
+<section id="statistics">
+  Average Age: <%= @average_age %>
+</section>
+
+<% @astronauts.each do |astronaut| %>
+  <div id="<%= astronaut.name.downcase.gsub(" ", "-") %>">
+    Name: <%= astronaut.name %> <br />
+    Age: <%= astronaut.age %> <br />
+    Job: <%= astronaut.job %><br/>
+    Missions:<br />
+    <% astronaut.missions.sorted.each do |mission| %>
+      <%= mission.title %><br />
+    <% end %>
+    Time in Space: <%= @time_in_space %>
+  <br /><br />
+  </div>
+<% end %>
